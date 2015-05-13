@@ -31,7 +31,7 @@ import org.wildfly.core.embedded.StandaloneServer;
  */
 public class EmbedServerTest {
 
-    //@Test
+    @Test
     public void test() throws Exception {
         // start embedded server
 

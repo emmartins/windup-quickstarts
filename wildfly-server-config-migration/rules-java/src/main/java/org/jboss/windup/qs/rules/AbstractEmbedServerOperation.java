@@ -40,6 +40,7 @@ public abstract class AbstractEmbedServerOperation implements Operation {
 
     @Override
     public void perform(Rewrite rewrite, EvaluationContext evaluationContext) {
+
         try {
             // start embedded server
             final StandaloneServer server = EmbedServerUtils.startStandaloneServer();

@@ -50,7 +50,18 @@ class EmbedServerUtils {
         return startStandaloneServer(null, true, false, false, null);
 
     }
+    public static StandaloneServer startStandaloneServer(String xml, boolean adminOnlySetting, boolean startEmpty, boolean removeExisting, Long bootTimeout) throws IllegalStateException, IllegalArgumentException, ServerStartException {
+        WildFlySecurityManager.setPropertyPrivileged("java.util.logging.manager", "org.jboss.logmanager.LogManager");
+        final StandaloneServer standaloneServer = EmbeddedServerFactory.create(getJBossHome().getAbsolutePath(), null, null);
+        try {
+            standaloneServer.start();
+        } catch (Throwable t) {
+            throw new RuntimeException(t);
+        }
+        return standaloneServer;
+    }
 
+    /*
     public static StandaloneServer startStandaloneServer(String xml, boolean adminOnlySetting, boolean startEmpty, boolean removeExisting, Long bootTimeout) throws IllegalStateException, IllegalArgumentException, ServerStartException {
 
         final File jbossHome = getJBossHome();
@@ -134,7 +145,7 @@ class EmbedServerUtils {
             }
         }
     }
-
+*/
     private static void configureLogContext(LogContext embeddedLogContext, File jbossHome) {
         WildFlySecurityManager.setPropertyPrivileged("java.util.logging.manager", "org.jboss.logmanager.LogManager");
         File standaloneDir =  new File(jbossHome, "standalone");

@@ -96,7 +96,7 @@
 
         <dependency>
             <groupId>org.wildfly.core</groupId>
-            <version>1.0.0.Beta5</version>
+            <version>1.0.0.CR2</version>
             <artifactId>wildfly-embedded</artifactId>
             <scope>compile</scope>
 
