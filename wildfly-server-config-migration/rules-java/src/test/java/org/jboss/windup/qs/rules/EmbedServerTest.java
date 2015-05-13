@@ -34,7 +34,6 @@ public class EmbedServerTest {
     @Test
     public void test() throws Exception {
         // start embedded server
-
         final StandaloneServer server = EmbedServerUtils.startStandaloneServer();
         try {
             // retrieve the model controller client
